@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>AITrainer</AssemblyName>
+    <ApplicationIcon>image_classification.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Keras.NET" Version="3.8.5" />
+    <PackageReference Include="Microsoft.ML" Version="1.6.0" />
+    <PackageReference Include="Microsoft.ML.ImageAnalytics" Version="1.6.0" />
+    <PackageReference Include="Microsoft.ML.Vision" Version="1.6.0" />
+    <PackageReference Include="OpenCvSharp4.Windows" Version="4.5.3.20210817" />
+    <PackageReference Include="OpenCvSharp4.WpfExtensions" Version="4.5.3.20210817" />
+    <PackageReference Include="Prism.Unity" Version="8.1.97" />
+    <PackageReference Include="SciSharp.TensorFlow.Redist-Windows-GPU" Version="2.3.1" />
+    <PackageReference Include="Wpf.Controls.PanAndZoom" Version="2.3.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ImageSelector\ImageSelector.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\ImageDataAugmentationPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PredictPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\ImageDataAugmentationPage.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PredictPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

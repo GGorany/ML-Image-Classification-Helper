@@ -1,0 +1,103 @@
+﻿<UserControl 
+    x:Class="AITrainer.Views.ImageDataAugmentationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:AITrainer.Views"
+    xmlns:prism="http://prismlibrary.com/" 
+    xmlns:paz="clr-namespace:Wpf.Controls.PanAndZoom;assembly=Wpf.Controls.PanAndZoom"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d" 
+    d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid Background="#EDD3ED" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="@ This Function have to use Python. @"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <GroupBox Grid.Column="0" Header="Processed Image">
+
+            </GroupBox>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <GroupBox Grid.Row="0" Header="Select Target Image Folder">
+                    <StackPanel Orientation="Vertical">
+                        <Grid Grid.Row="0" Margin="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="90"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBox Grid.Column="0" IsReadOnly="True" Margin="0,0,2,0"
+                                     Text="{Binding OriginalImageFolderName}"/>
+                            <Button Grid.Column="1" Content="Open Folder"
+                                    Command="{Binding OpenOriginalImageFolder}"/>
+                        </Grid>
+
+                        <TextBlock>
+                            <Run Text="Total "/>
+                            <Run Text="{Binding OriginalImageCount}" Foreground="Purple" FontWeight="Bold"/>
+                            <Run Text="ea Images are selected."/>
+                        </TextBlock>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Grid.Row="1" Header="Setup Image Data Augmentation">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Select Processed Image Save Folder : "/>
+
+                        <Grid Grid.Row="0" Margin="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="90"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBox Grid.Column="0" IsReadOnly="True" Margin="0,0,2,0"
+                                     Text="{Binding ProcessedImageFolderName}"/>
+                            <Button Grid.Column="1" Content="Open Folder"
+                                    Command="{Binding SelectProcessedImageFolder}"/>
+                        </Grid>
+
+                        <Separator Margin="0, 3, 0, 3" Background="Purple"/>
+
+                        <TextBlock Text="{Binding Status}" TextWrapping="Wrap" Foreground="DarkRed"/>
+
+                        <Button Content="Start" Margin="20, 0, 20, 0" FontSize="20"
+                                Command="{Binding StartAugmentation}"/>
+
+                        <Separator Margin="0, 3, 0, 3" Background="Purple"/>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Image Size (Square) : "/>
+
+                            <TextBox Text="{Binding ImageSize}" Width="50"/>
+                        </StackPanel>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </StackPanel>
+                </GroupBox>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</UserControl>
