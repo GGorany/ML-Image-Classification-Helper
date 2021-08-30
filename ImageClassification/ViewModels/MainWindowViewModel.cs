@@ -1,4 +1,4 @@
-﻿using AITrainer.Views;
+﻿using ImageClassification.Views;
 
 using Prism.Commands;
 using Prism.Mvvm;
@@ -8,7 +8,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 
-namespace AITrainer.ViewModels
+namespace ImageClassification.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {

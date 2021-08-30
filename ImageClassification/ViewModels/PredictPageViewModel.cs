@@ -1,4 +1,4 @@
-﻿using AITrainer.Models;
+﻿using ImageClassification.Models;
 
 using Microsoft.ML;
 using Microsoft.ML.Data;
@@ -18,7 +18,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 
-namespace AITrainer.ViewModels
+namespace ImageClassification.ViewModels
 {
     public class PredictPageViewModel : BindableBase
     {

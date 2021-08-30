@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
-namespace AITrainer.Helpers
+namespace ImageClassification.Helpers
 {
     public class ControlWriter : TextWriter
     {

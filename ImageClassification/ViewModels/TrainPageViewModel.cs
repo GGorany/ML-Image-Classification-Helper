@@ -1,6 +1,6 @@
-﻿using AITrainer.Models;
-using AITrainer.Helpers;
-using AITrainer.Utils;
+﻿using ImageClassification.Models;
+using ImageClassification.Helpers;
+using ImageClassification.Utils;
 
 using Prism.Commands;
 using Prism.Mvvm;
@@ -18,7 +18,7 @@ using static Microsoft.ML.Transforms.ValueToKeyMappingEstimator;
 using System.Collections.ObjectModel;
 using Microsoft.ML.Vision;
 
-namespace AITrainer.ViewModels
+namespace ImageClassification.ViewModels
 {
     public class TrainPageViewModel : BindableBase
     {

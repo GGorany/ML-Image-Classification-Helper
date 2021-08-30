@@ -1,6 +1,6 @@
 ﻿using Prism.Mvvm;
 
-namespace AITrainer.Models
+namespace ImageClassification.Models
 {
     public class ResultData : BindableBase
     {

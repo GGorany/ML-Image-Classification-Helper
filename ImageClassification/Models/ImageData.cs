@@ -1,5 +1,5 @@
 ﻿
-namespace AITrainer.Models
+namespace ImageClassification.Models
 {
     public class ImageData
     {

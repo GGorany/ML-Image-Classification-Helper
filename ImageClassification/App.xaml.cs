@@ -2,9 +2,9 @@
 
 using System.Windows;
 
-using AITrainer.Views;
+using ImageClassification.Views;
 
-namespace AITrainer
+namespace ImageClassification
 {
     /// <summary>
     /// Interaction logic for App.xaml

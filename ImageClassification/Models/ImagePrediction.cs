@@ -1,6 +1,6 @@
 ﻿using Microsoft.ML.Data;
 
-namespace AITrainer.Models
+namespace ImageClassification.Models
 {
     public class ImagePrediction
     {

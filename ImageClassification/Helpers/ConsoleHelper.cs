@@ -9,7 +9,7 @@ using System.Text;
 
 using static Microsoft.ML.TrainCatalogBase;
 
-namespace AITrainer.Helpers
+namespace ImageClassification.Helpers
 {
     public static class ConsoleHelper
     {

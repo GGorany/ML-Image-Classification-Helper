@@ -3,9 +3,9 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-using AITrainer.Models;
+using ImageClassification.Models;
 
-namespace AITrainer.Utils
+namespace ImageClassification.Utils
 {
     public class FileUtils
     {
