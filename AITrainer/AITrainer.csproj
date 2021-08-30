@@ -22,18 +22,11 @@
     <ProjectReference Include="..\ImageSelector\ImageSelector.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\ImageDataAugmentationPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\PredictPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Views\ImageDataAugmentationPage.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\PredictPage.xaml">
       <SubType>Designer</SubType>
     </Page>

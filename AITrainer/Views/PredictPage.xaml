@@ -78,8 +78,8 @@
                     <Button Grid.Column="1" Command="{Binding FolderSelect}" Content="Folder"/>
                 </Grid>
 
-                <ListBox Grid.Row="2" ItemsSource="{Binding TargetImages}" DisplayMemberPath="FileName" Margin="2"
-                         SelectedItem="{Binding SelectedTargetImage, Mode=TwoWay}" SelectionMode="Single"/>
+                <ListBox Grid.Row="2" ItemsSource="{Binding TargetImageFiles}" DisplayMemberPath="FileName" Margin="2"
+                         SelectedItem="{Binding SelectedTargetImageFile, Mode=TwoWay}" SelectionMode="Single"/>
 
                 <Grid Grid.Row="3" Margin="2">
                     <ItemsControl ItemsSource="{Binding Results}" Margin="0,5,0,5">

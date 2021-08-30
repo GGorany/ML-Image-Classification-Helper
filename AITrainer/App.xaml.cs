@@ -20,7 +20,6 @@ namespace AITrainer
         {
             containerRegistry.RegisterForNavigation<TrainPage>();
             containerRegistry.RegisterForNavigation<PredictPage>();
-            containerRegistry.RegisterForNavigation<ImageDataAugmentationPage>();
         }
     }
 }

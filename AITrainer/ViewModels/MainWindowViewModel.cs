@@ -36,7 +36,6 @@ namespace AITrainer.ViewModels
             NavigateCommand = new DelegateCommand<string>(Navigate);
 
             _regionManager.RegisterViewWithRegion("MainPageRegion", typeof(TrainPage));
-            _regionManager.RegisterViewWithRegion("MainPageRegion", typeof(ImageDataAugmentationPage));
             _regionManager.RegisterViewWithRegion("MainPageRegion", typeof(PredictPage));
         }
 

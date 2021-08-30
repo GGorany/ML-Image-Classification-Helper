@@ -37,8 +37,8 @@ namespace AITrainer.ViewModels
         private System.Windows.Point _BottomRightPoint = new System.Windows.Point(50, 50);
         private string _ResultText;
         private long _PridictTime;
-        private ObservableCollection<TargetImage> _TargetImages;
-        private TargetImage _SelectedTargetImage;
+        private ObservableCollection<TargetImageFile> _TargetImageFiles;
+        private TargetImageFile _SelectedTargetImageFile;
         private ObservableCollection<ResultData> _Results;
 
         public string ModelFileName
@@ -97,18 +97,18 @@ namespace AITrainer.ViewModels
             set { SetProperty(ref _PridictTime, value); }
         }
 
-        public ObservableCollection<TargetImage> TargetImages
+        public ObservableCollection<TargetImageFile> TargetImageFiles
         {
-            get { return _TargetImages; }
-            set { SetProperty(ref _TargetImages, value); }
+            get { return _TargetImageFiles; }
+            set { SetProperty(ref _TargetImageFiles, value); }
         }
 
-        public TargetImage SelectedTargetImage
+        public TargetImageFile SelectedTargetImageFile
         {
-            get { return _SelectedTargetImage; }
+            get { return _SelectedTargetImageFile; }
             set
             {
-                SetProperty(ref _SelectedTargetImage, value);
+                SetProperty(ref _SelectedTargetImageFile, value);
                 OnFileSelected();
             }
         }
@@ -132,7 +132,7 @@ namespace AITrainer.ViewModels
         public PredictPageViewModel()
         {
             Results = new ObservableCollection<ResultData>();
-            TargetImages = new ObservableCollection<TargetImage>();
+            TargetImageFiles = new ObservableCollection<TargetImageFile>();
             mlContext = new MLContext(seed: 1);
         }
         #endregion
@@ -176,8 +176,8 @@ namespace AITrainer.ViewModels
         {
             try
             {
-                SelectedTargetImage = null;
-                TargetImages.Clear();
+                SelectedTargetImageFile = null;
+                TargetImageFiles.Clear();
 
                 FolderBrowserDialog dialog = new FolderBrowserDialog();
                 dialog.ShowDialog();
@@ -189,7 +189,7 @@ namespace AITrainer.ViewModels
                 foreach (FileInfo File in di.GetFiles())
                 {
                     if ((File.Extension.ToLower().CompareTo(".png") == 0) || (File.Extension.ToLower().CompareTo(".jpg") == 0))
-                        TargetImages.Add(new TargetImage(File.Name, File.FullName));
+                        TargetImageFiles.Add(new TargetImageFile(File.Name, File.FullName));
                 }
             }
             catch (Exception e)
@@ -200,9 +200,9 @@ namespace AITrainer.ViewModels
 
         private void OnFileSelected()
         {
-            if (SelectedTargetImage != null)
+            if (SelectedTargetImageFile != null)
             {
-                this._sourceMat = new Mat(SelectedTargetImage.FullFileName, ImreadModes.Unchanged);
+                this._sourceMat = new Mat(SelectedTargetImageFile.FullFileName, ImreadModes.Unchanged);
                 OriginalImage = this._sourceMat.ToBitmapSource();
 
                 RunPredict();
@@ -241,8 +241,8 @@ namespace AITrainer.ViewModels
                     InMemoryImageData inMemoryImageData = new InMemoryImageData(
                         image: imagebyte,
                         //image: File.ReadAllBytes(SelectedTargetImage.FullFileName),
-                        label: SelectedTargetImage.FileName,
-                        imageFileName: SelectedTargetImage.FullFileName
+                        label: SelectedTargetImageFile.FileName,
+                        imageFileName: SelectedTargetImageFile.FullFileName
                     );
 
                     var prediction = predictionEngine.Predict(inMemoryImageData);

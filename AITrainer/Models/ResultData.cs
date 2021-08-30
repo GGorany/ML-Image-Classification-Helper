@@ -6,13 +6,14 @@ namespace AITrainer.Models
     {
         #region Properties
         private double _Score;
+        private string _SlotName;
+
         public double Score
         {
             get => _Score;
             set => SetProperty(ref _Score, value);
         }
 
-        private string _SlotName;
         public string SlotName
         {
             get => _SlotName;

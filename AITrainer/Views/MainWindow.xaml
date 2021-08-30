@@ -34,16 +34,6 @@
                 <Button Margin="2" Content="Train" FontSize="20" FontWeight="Heavy"
                         Command="{Binding NavigateCommand}" CommandParameter="TrainPage"/>
 
-                <Button Margin="2" FontSize="20" FontWeight="Heavy"
-                        Command="{Binding NavigateCommand}" CommandParameter="ImageDataAugmentationPage">
-                    <Button.Content>
-                        <StackPanel>
-                            <TextBlock Text="Image Data" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Augmentation" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button.Content>
-                </Button>
-
                 <Button Margin="2" Content="Predict" FontSize="20" FontWeight="Heavy"
                         Command="{Binding NavigateCommand}" CommandParameter="PredictPage"/>
 
