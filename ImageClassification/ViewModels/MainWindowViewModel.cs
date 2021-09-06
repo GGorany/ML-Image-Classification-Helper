@@ -15,7 +15,7 @@ namespace ImageClassification.ViewModels
         private readonly IRegionManager _regionManager;
 
         #region Properties
-        private string _Title = "Deep Learning Image Classification for AI Vision - Last Update : 2021.08.27";
+        private string _Title = "Deep Learning Image Classification for AI Vision - Last Update : 2021.09.06";
         public string Title {
             get { return _Title; }
             set { SetProperty(ref _Title, value); }

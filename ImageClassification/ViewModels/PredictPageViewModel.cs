@@ -33,8 +33,7 @@ namespace ImageClassification.ViewModels
         private string _FolderName;
         private BitmapSource _OriginalImage;
         private BitmapSource _CroppedImage;
-        private System.Windows.Point _TopLeftPoint = new System.Windows.Point(10, 10);
-        private System.Windows.Point _BottomRightPoint = new System.Windows.Point(50, 50);
+        private System.Windows.Rect _Rectangle = new System.Windows.Rect(0, 0, 10, 10);
         private string _ResultText;
         private long _PridictTime;
         private ObservableCollection<TargetImageFile> _TargetImageFiles;
@@ -65,22 +64,12 @@ namespace ImageClassification.ViewModels
             set { SetProperty(ref _CroppedImage, value); }
         }
 
-        public System.Windows.Point TopLeftPoint
+        public System.Windows.Rect Rectangle
         {
-            get { return _TopLeftPoint; }
-            set 
-            { 
-                SetProperty(ref _TopLeftPoint, value);
-                RunPredict();
-            }
-        }
-
-        public System.Windows.Point BottomRightPoint
-        {
-            get { return _BottomRightPoint; }
-            set 
-            { 
-                SetProperty(ref _BottomRightPoint, value);
+            get { return _Rectangle; }
+            set
+            {
+                SetProperty(ref _Rectangle, value);
                 RunPredict();
             }
         }
@@ -282,36 +271,10 @@ namespace ImageClassification.ViewModels
         private Rect GetRect()
         {
             Rect baserect = new Rect(0, 0, (int)this._sourceMat.Width, (int)this._sourceMat.Height);
-            Point topLeft = new Point(TopLeftPoint.X, TopLeftPoint.Y);
-            Point bottomRight = new Point(BottomRightPoint.X, BottomRightPoint.Y);
+            Rect rect = new Rect((int)Rectangle.X, (int)Rectangle.Y, (int)Rectangle.Width, (int)Rectangle.Height);
 
-            if (!baserect.Contains(topLeft) && !baserect.Contains(bottomRight))
+            if (!baserect.Contains(rect.TopLeft) && !baserect.Contains(rect.BottomRight))
                 return Rect.Empty;
-
-            int x = (int)Math.Min(TopLeftPoint.X, BottomRightPoint.X);
-            int y = (int)Math.Min(TopLeftPoint.Y, BottomRightPoint.Y);
-            int w = (int)Math.Abs(BottomRightPoint.X - TopLeftPoint.X);
-            int h = (int)Math.Abs(BottomRightPoint.Y - TopLeftPoint.Y);
-
-            Rect rect = new Rect(x, y, w, h);
-
-            if (x < 0)
-            {
-                rect.X = 0;
-                rect.Width = w + x;
-            }
-
-            if (y < 0)
-            {
-                rect.Y = 0;
-                rect.Height = h + y;
-            }
-
-            if ((x + w) > (int)this._sourceMat.Width)
-                rect.Width = (int)this._sourceMat.Width - x;
-
-            if ((rect.Y + rect.Height) > (int)this._sourceMat.Height)
-                rect.Height = (int)this._sourceMat.Height - y;
 
             return rect;
         }

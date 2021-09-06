@@ -7,39 +7,64 @@
     mc:Ignorable="d">
 
     <UserControl.Resources>
-        <DrawingBrush x:Key="SelectorBackground" Stretch="None" TileMode="Tile" Viewport="0,0,10,10" ViewportUnits="Absolute">
-            <DrawingBrush.Drawing>
-                <DrawingGroup>
-                    <GeometryDrawing Geometry="M0,0 L10,0 10,10, 0,10Z" Brush="White"/>
-                    <GeometryDrawing Geometry="M0,5 L10,5 10,10, 5,10 5,0 0,0Z" Brush="LightGray"/>
-                </DrawingGroup>
-            </DrawingBrush.Drawing>
-        </DrawingBrush>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Dictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </UserControl.Resources>
 
     <Grid>
-        <ScrollViewer x:Name="_ScrollViewer"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StatusBar Grid.Row="0" Background="Transparent">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            
+            <StatusBarItem>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Fill="{DynamicResource ArrowExpand}" Stretch="Uniform" Width="14" Height="14"/>
+                    <TextBlock x:Name="_Size"/>
+                </StackPanel>
+            </StatusBarItem>
+
+            <Separator/>
+
+            <StatusBarItem>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Fill="{DynamicResource ZoomOutMap}" Stretch="Uniform" Width="14" Height="14"/>
+                    <TextBlock x:Name="_Zoom"/>
+                </StackPanel>
+            </StatusBarItem>
+
+            <Separator/>
+
+            <StatusBarItem>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Fill="{DynamicResource VectorLine}" Stretch="Uniform" Width="14" Height="14"/>
+                    <TextBlock x:Name="_Line"/>
+                </StackPanel>
+            </StatusBarItem>
+        </StatusBar>
+
+        <ScrollViewer x:Name="_ScrollViewer" Grid.Row="1"
                       HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <Grid Background="{DynamicResource SelectorBackground}">
                 <Image x:Name="_SourceImage" Stretch="None"/>
 
                 <Grid x:Name="_MouseHandler" Background="Transparent">
-                    <ItemsControl x:Name="_ROI" ClipToBounds="True"
-                                  Width="{Binding ActualWidth, ElementName=_SourceImage}" 
-								  Height="{Binding ActualHeight, ElementName=_SourceImage}"/>
+                    <Canvas x:Name="_Canvas" Background="Transparent"
+                            Width="{Binding ActualWidth, ElementName=_SourceImage}" 
+							Height="{Binding ActualHeight, ElementName=_SourceImage}">
+                    </Canvas>
                 </Grid>
             </Grid>
         </ScrollViewer>
-
-        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <TextBox x:Name="_Zoom" Width="Auto" BorderThickness="0" HorizontalAlignment="Left"
-                     Text="ZOOM : 100%"/>
-            <TextBox x:Name="_Position" Width="Auto" BorderThickness="0" HorizontalAlignment="Left"
-                     Text="MOUSE : x = 0, y = 0"/>
-            <TextBox x:Name="_StartPoint" Width="Auto" BorderThickness="0" HorizontalAlignment="Left"
-                     Text="START POINT : x = 0, y = 0"/>
-            <TextBox x:Name="_EndPoint" Width="Auto" BorderThickness="0" HorizontalAlignment="Left"
-                     Text="END POINT : x = 0, y = 0"/>
-        </StackPanel>
     </Grid>
 </UserControl>

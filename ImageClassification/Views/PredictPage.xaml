@@ -24,8 +24,7 @@
 
         <GroupBox Grid.Row="0" Grid.Column="0" Header="Original Image" >
             <selector:Rectangler Source="{Binding OriginalImage}"
-                                 TopLeft="{Binding TopLeftPoint, Mode=TwoWay}"
-                                 BottomRight="{Binding BottomRightPoint, Mode=TwoWay}"/>
+                                 Rect="{Binding Rectangle, Mode=TwoWay}"/>
         </GroupBox>
 
         <GroupBox Grid.Row="1" Grid.Column="0" Header="ROI Image to Predict" >

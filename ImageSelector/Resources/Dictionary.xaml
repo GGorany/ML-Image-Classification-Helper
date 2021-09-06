@@ -1,0 +1,67 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <DrawingBrush x:Key="SelectorBackground" Stretch="None" TileMode="Tile" Viewport="0,0,10,10" ViewportUnits="Absolute">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <GeometryDrawing Geometry="M0,0 L10,0 10,10, 0,10Z" Brush="White"/>
+                <GeometryDrawing Geometry="M0,5 L10,5 10,10, 5,10 5,0 0,0Z" Brush="LightGray"/>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <VisualBrush x:Key="ArrowExpand" Stretch="Uniform">
+        <VisualBrush.Visual>
+            <Grid Width="24" Height="24">
+                <Path Fill="Black"
+                      Data="M10, 21V19H6.41L10.91, 14.5L9.5, 13.09L5, 17.59V14H3V21H10M14.5, 10.91L19, 6.41V10H21V3H14V5H17.59L13.09, 9.5L14.5, 10.91Z" />
+            </Grid>
+        </VisualBrush.Visual>
+    </VisualBrush>
+
+    <VisualBrush x:Key="ZoomOutMap" Stretch="Uniform">
+        <VisualBrush.Visual>
+            <Grid Width="24" Height="24">
+                <Path Fill="Black"
+                      Data="M9.5, 13.09L10.91, 14.5L6.41, 19H10V21H3V14H5V17.59L9.5, 13.09M10.91, 9.5L9.5, 10.91L5, 6.41V10H3V3H10V5H6.41L10.91, 9.5M14.5, 13.09L19, 17.59V14H21V21H14V19H17.59L13.09, 14.5L14.5, 13.09M13.09, 9.5L17.59, 5H14V3H21V10H19V6.41L14.5, 10.91L13.09, 9.5Z" />
+            </Grid>
+        </VisualBrush.Visual>
+    </VisualBrush>
+
+    <VisualBrush x:Key="SelectionDrag" Stretch="Uniform">
+        <VisualBrush.Visual>
+            <Grid Width="24" Height="24">
+                <Path Fill="Black"
+                      Data="M14, 17H17V14H19V17H22V19H19V22H17V19H14V17M12, 17V19H9V17H12M7, 17V19H3V15H5V17H7M3, 13V10H5V13H3M3, 8V4H7V6H5V8H3M9, 4H12V6H9V4M15, 4H19V8H17V6H15V4M19, 10V12H17V10H19Z" />
+            </Grid>
+        </VisualBrush.Visual>
+    </VisualBrush>
+
+    <VisualBrush x:Key="VectorLine" Stretch="Uniform">
+        <VisualBrush.Visual>
+            <Grid Width="24" Height="24">
+                <Path Fill="Black"
+                      Data="M15, 3V7.59L7.59, 15H3V21H9V16.42L16.42, 9H21V3M17, 5H19V7H17M5, 17H7V19H5" />
+            </Grid>
+        </VisualBrush.Visual>
+    </VisualBrush>
+
+    <VisualBrush x:Key="Square" Stretch="Uniform">
+        <VisualBrush.Visual>
+            <Grid Width="24" Height="24">
+                <Path Fill="Black"
+                      Data="M18, 18H6V6H18M18, 4H6A2, 2 0 0, 0 4, 6V18A2, 2 0 0, 0 6, 20H18A2, 2 0 0, 0 20, 18V6C20, 4.89 19.1, 4 18, 4Z" />
+            </Grid>
+        </VisualBrush.Visual>
+    </VisualBrush>
+
+    <VisualBrush x:Key="Rectangle" Stretch="Uniform">
+        <VisualBrush.Visual>
+            <Grid Width="24" Height="24">
+                <Path Fill="Black"
+                      Data="M4, 6V19H20V6H4M18, 17H6V8H18V17Z" />
+            </Grid>
+        </VisualBrush.Visual>
+    </VisualBrush>
+
+</ResourceDictionary>
